@@ -1,3 +1,2 @@
-﻿  RLE.cpp
-c:\users\asus\desktop\cv etc\test\rle task\rle task\rle.cpp(15): warning C4244: '=': conversion from 'unsigned __int64' to 'float', possible loss of data
+﻿  main.cpp
   RLE Task.vcxproj -> C:\Users\Asus\Desktop\CV etc\Test\RLE Task\x64\Debug\RLE Task.exe

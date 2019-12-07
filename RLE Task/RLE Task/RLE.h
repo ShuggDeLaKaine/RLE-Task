@@ -19,7 +19,7 @@ public:
 	RLE(); //!< Constructor function for the RLE class with a single parameter.
 	~RLE(); //!< Deconstructor function for RLE.
 	string encode(const string &str); //!< Function to ...
-	string decode(); //!< Function to ...
+	string decode(const string &str); //!< Function to ...
 	string openFile(string file); //!< Function to ...
 	float getCR(); //!< Function to ...
 private:
@@ -28,5 +28,6 @@ private:
 	string inputStr; //!< 
 	ifstream inputFile; //!< 
 	float compressionRatio; //!< 
-	float dataLength; //!< 
+	float inputDataLength; //!<
+	float outputDataLength; //!< 
 };
