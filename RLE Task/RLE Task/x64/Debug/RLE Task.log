@@ -1,5 +1,3 @@
-﻿  main.cpp
-  RLE.cpp
-c:\users\asus\desktop\cv etc\test\rle task\rle task\rle.cpp(15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+﻿  RLE.cpp
+c:\users\asus\desktop\cv etc\test\rle task\rle task\rle.cpp(15): warning C4244: '=': conversion from 'unsigned __int64' to 'float', possible loss of data
   RLE Task.vcxproj -> C:\Users\Asus\Desktop\CV etc\Test\RLE Task\x64\Debug\RLE Task.exe

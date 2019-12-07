@@ -14,15 +14,15 @@ int main() //!< Entry point for the application
 {
 	RLE RLE;
 
-	string input;
+	string input; //!< string variable to take the data from the text file.
 	char c;
 
 	int asciiFront = 000;
 	int asciiBack = 127;
 
 	try {
-		cout << "File data to be encoded is " << RLE.openFile("big_mix.txt") << endl;
-		input = RLE.openFile("big_mix.txt");
+		cout << "File data to be encoded is " << RLE.openFile("compress_decompress_2.txt") << endl;
+		input = RLE.openFile("compress_decompress_2.txt"); //!< using the openFile function to return a string of the .txt files contents and assign that to the input variable.
 
 		for (int j = 0; j < input.length(); ++j) 
 		{
@@ -44,9 +44,8 @@ int main() //!< Entry point for the application
 		return 0;
 	}
 
-	//RLE.encode(input);
-
 	cout << "Implementing RLE encoding on the above data..." << "\n" << "RLE encoded data as follows: " << RLE.encode(input) << endl;
+	cout << "The compression rate of this file is " << RLE.getCR() << endl;
 
 	system("pause");
 
