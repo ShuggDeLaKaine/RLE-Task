@@ -1,3 +1,5 @@
 ﻿  main.cpp
-c:\users\asus\desktop\cv etc\test\rle task\rle task\main.cpp(82): warning C4018: '<': signed/unsigned mismatch
-  RLE Task.vcxproj -> C:\Users\Asus\Desktop\CV etc\Test\RLE Task\Debug\RLE Task.exe
+c:\users\asus\desktop\cv etc\test\rle task\rle task\main.cpp(34): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\desktop\cv etc\test\rle task\rle task\main.cpp(100): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\asus\desktop\cv etc\test\rle task\rle task\main.cpp(100): error C4700: uninitialized local variable 'initalDataLength' used
+c:\users\asus\desktop\cv etc\test\rle task\rle task\main.cpp(100): error C4700: uninitialized local variable 'encodedDataLength' used

@@ -116,10 +116,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RLE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="compress_decompress_1.txt" />
     <Text Include="compress_decompress_2.txt" />
+    <Text Include="300_As.txt" />
+    <Text Include="big_mix.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RLE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

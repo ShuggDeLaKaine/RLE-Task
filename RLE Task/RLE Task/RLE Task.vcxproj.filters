@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RLE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="compress_decompress_2.txt">
@@ -26,5 +29,16 @@
     <Text Include="compress_decompress_1.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="300_As.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="big_mix.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RLE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
