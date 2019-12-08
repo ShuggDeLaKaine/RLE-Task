@@ -29,10 +29,16 @@
     <Text Include="compress_decompress_1.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="300_As.txt">
+    <Text Include="decode_simple.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="big_mix.txt">
+    <Text Include="encode _300_a.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="encode_long_mix.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="encode_simple.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
