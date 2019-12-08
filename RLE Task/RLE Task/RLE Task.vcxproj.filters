@@ -32,9 +32,6 @@
     <Text Include="decode_simple.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="encode _300_a.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="encode_long_mix.txt">
       <Filter>Resource Files</Filter>
     </Text>

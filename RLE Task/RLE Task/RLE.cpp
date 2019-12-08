@@ -4,6 +4,7 @@
  */
 #include "RLE.h"
 
+
 //!Funtion RLE() - to initalise values of variables.
 RLE::RLE()
 {
@@ -13,10 +14,12 @@ RLE::RLE()
 	outputDataLength = 0.0f;
 }
 
+
 //!Funtion ~RLE() - deconstructor ready to go; currently unused.
 RLE::~RLE()
 {
 }
+
 
 //! Function encode() - used to take a string and use RLE encoding upon it and return the encoded data as a string.
 /*!
@@ -25,6 +28,8 @@ RLE::~RLE()
 */
 string RLE::encode(const string &str)
 {
+	//resetting and clearing 'encode' string from any previous data.
+	encoding = "";
 	//taking the length of the string which requires encoding. Used within the below loop but also passed to getCR() to work out compression ratios.
 	inputDataLength = str.length();
 
@@ -42,12 +47,13 @@ string RLE::encode(const string &str)
 			i++;
 		}
 		//creating the newly encoded string by adding the total count of character to the string and then adding the character which has been counted. 
-		encoding += std::to_string(count);
+		encoding += to_string(count);
 		encoding.push_back(str[i]);
 	}
 	//returing the string encoding, containing the encoded data.
 	return encoding;
 }
+
 
 //! Function getCR() - a function to work out the compression ratio, created for further expansion of different ratios. 
 /*!
@@ -56,6 +62,8 @@ NOTE - could have been placed within encode() but given own function for future 
 */
 float RLE::getCR()
 {
+	//resetting compressionRatio from last use.
+	compressionRatio = 0;
 	//taking the lengths of the original string and the encoded string
 	cout << "Length of original data string is " << inputDataLength << endl;
 	cout << "Length of compressed data string is " << encoding.length() << endl;
@@ -65,6 +73,7 @@ float RLE::getCR()
 	return compressionRatio;
 }
 
+
 //! Function decode() - to take a string of encoded data and run hrough a decoding loop to get the original data.
 /*!
 /param &str - a string variable to take the string of data that requires decoding.
@@ -72,40 +81,38 @@ float RLE::getCR()
 */
 string RLE::decode(const string &str)
 {
+	//resetting and clearing 'decode' string from any previous data.
+	decoding = "";
 	//taking the length of the inputted string to use with the loop and potentially for compression ratio checks.
 	outputDataLength = str.length();
 
-	for (int i = 0; i < outputDataLength; i++)
-	{
-		//temp var c to contain a char.
-		char c;
-		//temp var count to contain an int.
-		int count = 0; 
+	//temp var c to contain a char.
+	char c;
+	//temp var count to contain an int; initialising it to the string point in the string which if RLE encoded should be the first number.
+	int count = str.at(0);
 
-		// if the char at position [i] in the string is not alphabetic (so therefore a number) then...
-		if (!isalpha(str[i]))
+	for (int i = 0; i < outputDataLength; ++i)
+	{
+
+		//if the char at position [i] in the string is not alphabetic nor punctuation, so therefore a number.
+		//if (str[i] == !isalpha && str[i] == !ispunct)
+		if (!isalpha(str[i]) && !ispunct(str[i]))
 		{
-			cout << "str[i] is a number" << endl; //***DEBUG - REMEMBER TO REMOVE***
-			//assign that number to variable 'count'.
-			count = str[i];
+			cout << "str[" << i << "] is a number" << endl; //***DEBUG - REMEMBER TO REMOVE***
 			cout << "that number is " << count << endl; //***DEBUG - REMEMBER TO REMOVE***
-			//and move along to the char in the string array.
-			i++;
-			//else, if it's not a number, must be alphabetic so...
+			//assign number at position [i] in the string to variable 'count'.
+			count = str.at(i);
+			//else, if it's not a number, must be alphabetic or punctuation, so...
 		} else {
-			cout << "str[i] is a letter" << endl; //***DEBUG - REMEMBER TO REMOVE***
+			cout << "str[" << i << "] is a letter" << endl; //***DEBUG - REMEMBER TO REMOVE***
 			//assign the char at position [i] in the string to variable c.
-			c = str[i];
+			c = str.at(i);
 			cout << "that letter is " << c << endl; //***DEBUG - REMEMBER TO REMOVE***
 			//for loop used to print the 'char c' for as long as the the 'int count'.
 			for (int j = 0; j < count; j++) 
 			{
-				cout << "into the final loop" << endl; //***DEBUG - REMEMBER TO REMOVE***
-				//print to console the 'char c'.
-				cout << c; 
-				//
-				decoding += std::to_string(c);
-				decoding.push_back(str[i]);
+				//passing char from c to decoding string to be returned.
+				decoding += std::to_string(char(c));
 			}
 		}
 	}
@@ -113,32 +120,6 @@ string RLE::decode(const string &str)
 	return decoding;
 }
 
-/*
-string RLE::decode(const string &str)
-{
-	outputDataLength = str.length();
-	int j = 0;
-
-	for (int i = 0; i < outputDataLength; i++)
-	{
-		string counter;
-		int letterCoefficient = 0;
-		if (!isalpha(str[i]))
-			continue;
-		else
-		{
-			counter = str.substr()[j, i - j];
-			j = i + 1;
-			istringstream(j) >> letterCoefficient;
-			for (int k = 0; k < letterCoefficient; k++)
-			{
-				decoding += str[i];
-			}
-		}
-	}
-	return decoding;
-}
-*/
 
 //! Function openFile() - to take string of file name reuired to be opened, open it and return a string containing the data from the text file.
 /*!

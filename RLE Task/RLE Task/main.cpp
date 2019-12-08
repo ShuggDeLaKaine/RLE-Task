@@ -18,7 +18,6 @@ int main() //!< Entry point for the application
 {
 	RLE RLE; //!< reference to call functions from within the 'RLE' class.
 	string input; //!< string variable to take the data from the text file.
-	string encodedInput; //!< string variable to take encoded string and pass on to be decoded.
 
 	try 
 	{
@@ -33,8 +32,7 @@ int main() //!< Entry point for the application
 
 	cout << "Implementing RLE encoding on the above data..." << "\n" << "RLE encoded data as follows: " << RLE.encode(input) << endl;
 	cout << "The compression rate of this file is " << RLE.getCR() << endl;
-	encodedInput = RLE.encode(input);
-	cout << "Decompressing RLE encoded data to give original data stream of " << RLE.decode(encodedInput) << endl;
+	cout << "Decompressing RLE encoded data to give original data stream of " << RLE.decode(RLE.encode(input)) << endl;
 	
 	system("pause");
 
